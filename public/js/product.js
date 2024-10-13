@@ -1,5 +1,5 @@
-const dataUrl = './public/db/shopee.json'
-// const dataUrl = '../'
+// const dataUrl = './public/db/shopee.json'
+const dataUrl = '../'
 
 fetch(dataUrl)
     .then(response => response.json())
