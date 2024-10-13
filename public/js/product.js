@@ -1,4 +1,5 @@
-const dataUrl = './assets/db/shopee.json'
+const dataUrl = './public/db/shopee.json'
+// const dataUrl = '../'
 
 fetch(dataUrl)
     .then(response => response.json())
@@ -26,7 +27,7 @@ function renderItem(items) {
         return `
         <div data="${item.id}" class="col l-2-4 m-3 c-6 home-product-item">
             <a class="home-product-item-link" href="#">
-                <div class="home-product-item__img" style="background-image: url(./assets/img/home/${item.id}.PNG);"></div>
+                <div class="home-product-item__img" style="background-image: url(./public/img/home/${item.id}.PNG);"></div>
                 <div class="home-product-item__info">
                     <h4 class="home-product-item__name">${item.name}</h4>
                     <div class="home-product-item__price">
