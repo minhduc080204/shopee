@@ -225,6 +225,75 @@ function handlePagination(){
     }
 }
 
+        function handleClick(product) {            
+    if (!product) {
+        console.error('No product element passed');
+        return;
+    }
+
+    // Lấy link ảnh từ background-image của thẻ div
+    const imgDiv = product.querySelector('.home-product-item__img');
+    let imgUrl = '';
+    if (imgDiv && imgDiv.style.backgroundImage) {
+        imgUrl = imgDiv.style.backgroundImage.slice(5, -2); // Bỏ 'url(' và ')'
+        console.log("Image URL:", imgUrl);
+    } else {
+        console.error('Image URL not found');
+    }
+
+    // Lấy tên sản phẩm từ thẻ h4
+    let productName = '';
+    const productNameElement = product.querySelector('.home-product-item__name');
+    if (productNameElement) {
+        productName = productNameElement.textContent;
+        console.log("Product Name:", productName);
+    } else {
+        console.error('Product name not found');
+    }
+
+    // Lấy giá mới từ thẻ p
+    let newPrice = '';
+    const newPriceElement = product.querySelector('.home-product-item__price-new');
+    if (newPriceElement) {
+        newPrice = newPriceElement.textContent;
+        console.log("New Price:", newPrice);
+    } else {
+        console.error('New price not found');
+    }
+
+    // Thêm mục mới vào ul
+    addToCart(imgUrl, productName, newPrice);
+            
+        }
+
+        function addToCart(imgUrl, productName, newPrice) {
+    // Tạo phần tử li mới
+    const cartList = document.querySelector('.header__cart-list-item');
+    const newCartItem = document.createElement('li');
+    newCartItem.classList.add('header__cart-item');
+
+    // Tạo nội dung bên trong li
+    newCartItem.innerHTML = `
+        <img src="${imgUrl}" class="header__cart-item-img">
+        <div class="header__cart-item-info">
+            <div class="header__cart-item-heading">
+                <h3 class="header__cart-item-name">${productName}</h3>
+                <p class="header__cart-item-price">${newPrice}</p>
+            </div>
+            <div class="header__cart-item-body">
+                <p class="header__cart-item-number">x 1</p>
+                <div class="header__cart-item-close">
+                    Xoá
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Thêm li mới vào ul
+    cartList.appendChild(newCartItem);
+}
+
 // catagory
 
 var headerCatagoryItem = document.querySelectorAll('.header__sort-item');
@@ -294,3 +363,4 @@ homeFilterPage[1].onclick = function(){
         homeFilterPage[1].classList.add('home-filter-page-btn--disable');
     }
 }
+
