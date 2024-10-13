@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Shopping</title>
-    <!--<link rel="icon" href="./assets/img/logo/shopee-logo.png" type="image/x-icon">-->
+    <title>Shopee</title>
+    <link rel="icon" href="./assets/img/logo/shopee-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -666,10 +666,12 @@
                                     </li>
                                 </ul>
                             </nav>
+                            <button onclick="click()">a</button>
+                            <button onclick="click()">b</button>
                             <!-- <div id="list-product" class="row sm-gutter"></div> -->
                             <div id="list-product" class="row sm-gutter">
                                 <div class="col l-2-4 m-3 c-6 home-product-item">
-                                    <a class="home-product-item-link" href="#">
+                                    <a class="home-product-item-link" type="button">
                                         <div class="home-product-item__img" style="background-image: url(./assets/img/home/1.PNG);"></div>
                                         <div class="home-product-item__info">
                                             <h4 class="home-product-item__name">Ổ đĩa flash USB2.0 2TB Hp kim loại chống thấm nước</h4>
@@ -705,7 +707,7 @@
                                     </a>
                                 </div>
                                 <div class="col l-2-4 m-3 c-6 home-product-item">
-                                    <a class="home-product-item-link" href="#">
+                                    <a class="home-product-item-link" type="button">
                                         <div class="home-product-item__img" style="background-image: url(./assets/img/home/2.PNG);"></div>
                                         <div class="home-product-item__info">
                                             <h4 class="home-product-item__name">Ổ đĩa flash USB2.0 2TB Hp kim loại chống thấm nước</h4>
@@ -1912,5 +1914,10 @@
 
     <!-- script js -->
     <script src="./assets/js/product.js"></script>
+    <script>
+        function handleClick() {
+          alert("Button clicked!");
+        }
+    </script>
 </body>
 </html>
